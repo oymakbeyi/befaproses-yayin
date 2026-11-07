@@ -1,0 +1,163 @@
+# Sveltia CMS ayarları (https://sveltiacms.app/en/docs). Alanlar src/content.config.ts zod şemasıyla AYNI sınırları taşır:
+# panelde yakalanmayan bir hata derlemede yakalanır ve canlı site eski haliyle kalır.
+# Giriş: "Sign In with Token" (GitHub ince ayarlı erişim anahtarı; befaproses-site deposunda Contents: Read and write).
+backend:
+  name: github
+  repo: oymakbeyi/befaproses-site
+  branch: main
+
+site_url: https://test.befaproses.com
+media_folder: /public/gorseller
+public_folder: /gorseller
+
+# Adres (slug): ASCII, aksansız, küçük harf (https://sveltiacms.app/en/docs/collections/entries/slugs). Türkçe "ı"nın
+# dönüşümü belgede yazmıyor: ürün adresinde ASCII dışı karakter kalırsa ICERIK kapısı derlemeyi durdurur.
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
+
+# Yüklenen dosya adları URL'ye uygun hale getirilir ("Ürün Foto 1.jpg" > "urun-foto-1.jpg"; https://sveltiacms.app/en/docs/media)
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+
+collections:
+  - name: urunler
+    label: Ürünler
+    label_singular: Ürün
+    folder: src/content/urunler
+    path: '{{slug}}/index'
+    media_folder: ''
+    public_folder: ''
+    create: true
+    identifier_field: baslik
+    summary: '{{baslik}} ({{durum}})'
+    fields:
+      - { name: baslik, label: Ürün adı (sayfa başlığı), widget: string, hint: 'Birincil kelimeyi içermeli, ör. "Elektromanyetik Debimetre BMF2000". Sayfa adresi bu addan üretilir.' }
+      - { name: aciklama, label: Arama sonucu açıklaması, widget: text, pattern: ['^[\s\S]{70,160}$', '70 ile 160 karakter arasında olmalı'] }
+      - { name: ozet, label: Giriş paragrafı, widget: text, pattern: ['^[\s\S]{40,}$', 'En az 40 karakter'], hint: 'Ürünün ne olduğu, neyi ölçtüğü, hangi uygulamaya uygun olduğu.' }
+      - name: hub
+        label: Ürün grubu
+        widget: select
+        required: false
+        options:
+          - { label: Debimetre, value: debimetre }
+          - { label: Seviye, value: seviye-sensoru }
+          - { label: Basınç, value: basinc-transmitteri }
+          - { label: Sıcaklık, value: sicaklik-sensoru }
+          - { label: Analiz, value: analiz }
+          - { label: Dozaj, value: dozaj-pompasi }
+      - { name: birincil_kelime, label: Birincil arama kelimesi, widget: string, required: false }
+      - { name: marka, label: Marka (şema), widget: string, required: false, hint: 'Yalnız BEFA markalı üründe "BEFA".' }
+      - name: gorseller
+        label: Görseller
+        widget: list
+        min: 1
+        fields:
+          - { name: dosya, label: Görsel, widget: image }
+          - { name: alt, label: Görsel açıklaması (alt metin), widget: string, pattern: ['^[\s\S]{5,}$', 'En az 5 karakter'] }
+      - name: modeller
+        label: Modeller ve teknik özellikler
+        widget: list
+        min: 1
+        fields:
+          - { name: ad, label: Model adı, widget: string }
+          - { name: kod, label: Model kodu, widget: string, required: false }
+          - name: teknik
+            label: Teknik özellikler (ad, değer)
+            widget: list
+            required: false
+            fields:
+              - { name: ad, label: Özellik, widget: string }
+              - { name: deger, label: Değer, widget: string }
+          - { name: ozellikler, label: Diğer teknik maddeler, widget: list, required: false, field: { name: madde, label: Madde, widget: string } }
+          - name: kataloglar
+            label: PDF kataloglar
+            widget: list
+            required: false
+            fields:
+              - { name: ad, label: Katalog adı, widget: string }
+              - { name: dosya, label: PDF dosyası, widget: file, media_folder: /public/kataloglar, public_folder: /kataloglar }
+      - { name: uygulama_alanlari, label: Uygulama alanları, widget: list, required: false, field: { name: alan, label: Alan, widget: string } }
+      - name: sss
+        label: Sık sorulan sorular
+        widget: list
+        required: false
+        fields:
+          - { name: soru, label: Soru, widget: string, pattern: ['^[\s\S]{5,}$', 'En az 5 karakter'] }
+          - { name: cevap, label: Cevap, widget: text, pattern: ['^[\s\S]{20,}$', 'En az 20 karakter'] }
+      - name: kaynak
+        label: Teknik bilginin kaynağı
+        widget: list
+        min: 1
+        fields:
+          - { name: tur, label: Tür, widget: select, options: [{ label: Hüseyin Bey, value: huseyin-bey }, { label: Katalog, value: katalog }, { label: Eski site, value: eski-site }], default: huseyin-bey }
+          - { name: aciklama, label: Açıklama, widget: string }
+      - { name: one_cikan, label: Ana sayfada öne çıkar, widget: boolean, default: false }
+      - { name: sira, label: Sıra, widget: number, value_type: int, default: 100 }
+      - { name: sema_bicimi, label: Şema biçimi, widget: select, options: [itempage, product], default: itempage }
+      - name: durum
+        label: Durum
+        widget: select
+        default: onay-bekliyor
+        options:
+          - { label: Taslak (hiçbir yerde görünmez), value: taslak }
+          - { label: Onay bekliyor (yalnız test sitesi), value: onay-bekliyor }
+          - { label: Yayında (canlı site), value: yayinda }
+      - { name: yayin_tarihi, label: Yayın tarihi, widget: datetime, type: date }
+      - { name: guncelleme_tarihi, label: Güncelleme tarihi, widget: datetime, type: date }
+
+  - name: hublar
+    label: Ürün grupları
+    label_singular: Ürün grubu
+    folder: src/content/hublar
+    create: false
+    identifier_field: baslik
+    fields:
+      - { name: baslik, label: Başlık, widget: string }
+      - { name: menu_adi, label: Menü adı, widget: string }
+      - { name: birincil_kelime, label: Birincil arama kelimesi, widget: string }
+      - { name: aciklama, label: Arama sonucu açıklaması, widget: text, pattern: ['^[\s\S]{70,160}$', '70 ile 160 karakter arasında olmalı'] }
+      - { name: ozet, label: Giriş paragrafı, widget: text, pattern: ['^[\s\S]{40,}$', 'En az 40 karakter'] }
+      - { name: sira, label: Sıra, widget: number, value_type: int }
+      - name: sss
+        label: Sık sorulan sorular
+        widget: list
+        required: false
+        fields:
+          - { name: soru, label: Soru, widget: string, pattern: ['^[\s\S]{5,}$', 'En az 5 karakter'] }
+          - { name: cevap, label: Cevap, widget: text, pattern: ['^[\s\S]{20,}$', 'En az 20 karakter'] }
+      - name: durum
+        label: Durum
+        widget: select
+        options:
+          - { label: Taslak, value: taslak }
+          - { label: Onay bekliyor, value: onay-bekliyor }
+          - { label: Yayında, value: yayinda }
+      - { name: yayin_tarihi, label: Yayın tarihi, widget: datetime, type: date }
+      - { name: guncelleme_tarihi, label: Güncelleme tarihi, widget: datetime, type: date }
+      - { name: body, label: Seçim rehberi metni, widget: markdown, required: false }
+
+  - name: ayarlar
+    label: Firma bilgileri
+    files:
+      - name: site
+        label: İletişim ve firma bilgileri (alt bilgi, iletişim sayfası ve şema buradan okur)
+        file: src/data/site.json
+        fields:
+          - { name: ad, label: Kısa ad, widget: string }
+          - { name: resmi_ad, label: Resmi ad, widget: string }
+          - { name: slogan, label: Slogan, widget: string }
+          - { name: kurulus_yili, label: Kuruluş yılı, widget: number, value_type: int }
+          - { name: adres, label: Adres, widget: object, fields: [{ name: sokak, label: Sokak / bina, widget: string }, { name: ilce, label: İlçe, widget: string }, { name: il, label: İl, widget: string }, { name: ulke, label: Ülke kodu, widget: select, options: [TR], default: TR }] }
+          - { name: konum, label: Harita konumu, widget: object, fields: [{ name: enlem, label: Enlem, widget: number, value_type: float }, { name: boylam, label: Boylam, widget: number, value_type: float }] }
+          - { name: telefon, label: Telefon, widget: object, fields: [{ name: e164, label: Uluslararası biçim (+90...), widget: string, pattern: ['^\+90\d{10}$', '+90 ve 10 hane'] }, { name: gorunen, label: Görünen biçim, widget: string }] }
+          - { name: whatsapp, label: WhatsApp, widget: object, fields: [{ name: e164, label: Uluslararası biçim (+90...), widget: string, pattern: ['^\+90\d{10}$', '+90 ve 10 hane'] }, { name: gorunen, label: Görünen biçim, widget: string }] }
+          - { name: eposta, label: E-posta, widget: object, fields: [{ name: genel, label: Genel, widget: string, pattern: ['^[^@\s]+@[^@\s]+\.[a-z]{2,}$', 'Geçerli e-posta'] }, { name: satis, label: Teklif (satış), widget: string, pattern: ['^[^@\s]+@[^@\s]+\.[a-z]{2,}$', 'Geçerli e-posta'] }] }
+          - { name: calisma_saatleri, label: Çalışma saatleri, widget: object, fields: [{ name: gunler, label: Çalışma günleri (şema için), widget: select, multiple: true, min: 1, options: [{ label: Pazartesi, value: Monday }, { label: Salı, value: Tuesday }, { label: Çarşamba, value: Wednesday }, { label: Perşembe, value: Thursday }, { label: Cuma, value: Friday }, { label: Cumartesi, value: Saturday }, { label: Pazar, value: Sunday }] }, { name: acilis, label: Açılış (SS:DD), widget: string, pattern: ['^\d{2}:\d{2}$', 'SS:DD'] }, { name: kapanis, label: Kapanış (SS:DD), widget: string, pattern: ['^\d{2}:\d{2}$', 'SS:DD'] }, { name: gorunen, label: Görünen metin, widget: string }] }
+          - { name: sosyal, label: Sosyal medya, widget: object, fields: [{ name: instagram, label: Instagram adresi, widget: string }] }
+          - { name: hizmet_bolgesi, label: Hizmet bölgesi (ülke kodu), widget: select, options: [TR], default: TR }
+          - { name: yayin_tarihi, label: İlk yayın tarihi, widget: datetime, type: date }
+          - { name: guncelleme_tarihi, label: Firma bilgisi güncelleme tarihi, widget: datetime, type: date, hint: 'Bilgi değişince bugünün tarihi.' }

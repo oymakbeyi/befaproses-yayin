@@ -1,2 +1,4 @@
+# Test sitesi: sayfalar X-Robots-Tag ve meta robots ile noindex.
 User-agent: *
 Allow: /
+Disallow: /admin/
