@@ -97,7 +97,7 @@ collections:
           - { name: aciklama, label: Açıklama, widget: string }
       - { name: one_cikan, label: Ana sayfada öne çıkar, widget: boolean, default: false }
       - { name: sira, label: Sıra, widget: number, value_type: int, default: 100 }
-      - { name: sema_bicimi, label: Şema biçimi, widget: select, options: [itempage, product], default: itempage }
+      - { name: sema_bicimi, label: Şema biçimi, widget: hidden, default: itempage }
       - name: durum
         label: Durum
         widget: select
