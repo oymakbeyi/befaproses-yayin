@@ -4,4 +4,8 @@ deployment:
     - export DEPLOYPATH=/home/befapros/test.befaproses.com/
     - /bin/rm -rf /home/befapros/test.befaproses.com/_astro
     - /bin/rm -rf /home/befapros/test.befaproses.com/araclar
+    - /bin/rm -rf /home/befapros/test.befaproses.com/urunler/basinc-transmitteri/uzatma-diyaframli-basinc-transmitteri
+    - /bin/bash yayin-temizle.sh /home/befapros/test.befaproses.com /home/befapros/yayin-durum/test-liste.txt yayin-liste.txt
     - /bin/cp -R public/. $DEPLOYPATH
+    - /bin/mkdir -p /home/befapros/yayin-durum
+    - /bin/cp yayin-liste.txt /home/befapros/yayin-durum/test-liste.txt
