@@ -3,4 +3,5 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/befapros/test.befaproses.com/
     - /bin/rm -rf /home/befapros/test.befaproses.com/_astro
+    - /bin/rm -rf /home/befapros/test.befaproses.com/araclar
     - /bin/cp -R public/. $DEPLOYPATH
