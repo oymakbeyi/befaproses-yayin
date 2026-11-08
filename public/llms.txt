@@ -29,4 +29,6 @@
 - [Ultrasonik Seviye Sensörü](https://test.befaproses.com/urunler/seviye-sensoru/ultrasonik-seviye-sensoru/): Ultrasonik Seviye Sensörü: teknik özellikler. Türkiye geneli satış ve servis için Befa Proses'ten teklif isteyin.
 
 ## Kurumsal
+- [Hakkımızda](https://test.befaproses.com/hakkimizda/): Befa Proses 2019'dan beri debimetre, seviye sensörü, basınç transmitteri, analiz ve dozaj cihazları sunar; Türkiye genelinde satış ve servis verir.
+- [Saha Servisi ve Kalibrasyon Ayarı](https://test.befaproses.com/hizmetler/): Befa Proses'ten Türkiye genelinde kalibrasyon ayarı, keşif, cihaz seçimi, montaj, devreye alma, servis, yedek parça ve eğitim hizmeti.
 - [İletişim](https://test.befaproses.com/iletisim/): Befa Proses iletişim bilgileri: telefon, WhatsApp, e-posta ve adres (Serdivan / Sakarya). Çalışma saatleri Pazartesi-Cuma 09:00-17:00.
