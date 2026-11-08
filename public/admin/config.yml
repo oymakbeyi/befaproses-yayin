@@ -148,10 +148,11 @@ collections:
         file: src/data/site.json
         fields:
           - { name: ad, label: Kısa ad, widget: string }
-          - { name: resmi_ad, label: Resmi ad, widget: string }
+          - { name: resmi_ad, label: Resmi ad (sitede görünen yazım), widget: string }
+          - { name: ticaret_unvani, label: Ticaret unvanı (vergi levhasındaki gibi), widget: string }
           - { name: slogan, label: Slogan, widget: string }
           - { name: kurulus_yili, label: Kuruluş yılı, widget: number, value_type: int }
-          - { name: adres, label: Adres, widget: object, fields: [{ name: sokak, label: Sokak / bina, widget: string }, { name: ilce, label: İlçe, widget: string }, { name: il, label: İl, widget: string }, { name: ulke, label: Ülke kodu, widget: select, options: [TR], default: TR }] }
+          - { name: adres, label: Adres, widget: object, fields: [{ name: sokak, label: Sokak / bina, widget: string }, { name: posta_kodu, label: Posta kodu, widget: string, pattern: ['^\d{5}$', '5 hane'] }, { name: ilce, label: İlçe, widget: string }, { name: il, label: İl, widget: string }, { name: ulke, label: Ülke kodu, widget: select, options: [TR], default: TR }] }
           - { name: konum, label: Harita konumu, widget: object, fields: [{ name: enlem, label: Enlem, widget: number, value_type: float }, { name: boylam, label: Boylam, widget: number, value_type: float }] }
           - { name: telefon, label: Telefon, widget: object, fields: [{ name: e164, label: Uluslararası biçim (+90...), widget: string, pattern: ['^\+90\d{10}$', '+90 ve 10 hane'] }, { name: gorunen, label: Görünen biçim, widget: string }] }
           - { name: whatsapp, label: WhatsApp, widget: object, fields: [{ name: e164, label: Uluslararası biçim (+90...), widget: string, pattern: ['^\+90\d{10}$', '+90 ve 10 hane'] }, { name: gorunen, label: Görünen biçim, widget: string }] }
