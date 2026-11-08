@@ -23,17 +23,19 @@ if [ ! -f "$ESKI" ]; then
   exit 0
 fi
 
-yeni_n=$(grep -c . "$YENI" || true)
-eski_n=$(grep -c . "$ESKI" || true)
-if [ "$yeni_n" -lt 20 ]; then
-  echo "yayin-temizle: yeni liste çok kısa ($yeni_n satır), DURDU"
-  exit 1
-fi
-
 GECICI=$(mktemp -d)
 trap 'rm -rf "$GECICI"' EXIT
-LC_ALL=C sort -u "$ESKI" > "$GECICI/eski"
-LC_ALL=C sort -u "$YENI" > "$GECICI/yeni"
+# _astro/ hesaba girmez: o klasör bu betikten ÖNCE her yayında baştan silinir (.cpanel.yml) ve adları içerik özetinden
+# geldiği için görseller değişince yüzlercesi birden yenilenir. 2026-11-08'de 39 görsel değişince 388 _astro dosyası
+# "yarıdan fazla" korumasını tetikledi, betik durdu ve ardından gelen kopyalama hiç koşmadı.
+{ grep -v '^_astro/' "$ESKI" || true; } | LC_ALL=C sort -u > "$GECICI/eski"
+{ grep -v '^_astro/' "$YENI" || true; } | LC_ALL=C sort -u > "$GECICI/yeni"
+yeni_n=$(grep -c . "$GECICI/yeni" || true)
+eski_n=$(grep -c . "$GECICI/eski" || true)
+if [ "$yeni_n" -lt 20 ]; then
+  echo "yayin-temizle: yeni liste çok kısa ($yeni_n satır, _astro hariç), DURDU"
+  exit 1
+fi
 LC_ALL=C comm -23 "$GECICI/eski" "$GECICI/yeni" > "$GECICI/sil"
 
 sil_n=$(grep -c . "$GECICI/sil" || true)
