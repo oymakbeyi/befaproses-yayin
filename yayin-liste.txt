@@ -1613,9 +1613,11 @@ logo/befa-renkli.svg
 logo/befa-siyah.svg
 og-paylasim-mavi.png
 og-paylasim.png
+rehber/basinc-olcer-nedir/index.html
 rehber/endustriyel-sensor-cesitleri/index.html
 rehber/index.html
 rehber/sil-nedir/index.html
+rehber/transmitter-nedir/index.html
 robots.txt
 safari-pinned-tab.svg
 sektorler/index.html
