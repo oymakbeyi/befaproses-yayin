@@ -1613,6 +1613,7 @@ logo/befa-renkli.svg
 logo/befa-siyah.svg
 og-paylasim-mavi.png
 og-paylasim.png
+rehber/4-20-ma-sinyal-nedir/index.html
 rehber/basinc-olcer-nedir/index.html
 rehber/debi-nedir/index.html
 rehber/endustriyel-sensor-cesitleri/index.html
