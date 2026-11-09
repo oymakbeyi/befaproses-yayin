@@ -1613,6 +1613,9 @@ logo/befa-renkli.svg
 logo/befa-siyah.svg
 og-paylasim-mavi.png
 og-paylasim.png
+rehber/endustriyel-sensor-cesitleri/index.html
+rehber/index.html
+rehber/sil-nedir/index.html
 robots.txt
 safari-pinned-tab.svg
 sektorler/index.html
