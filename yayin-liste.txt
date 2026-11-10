@@ -1567,6 +1567,7 @@ rehber/basinc-olcer-nedir/index.html
 rehber/debi-nedir/index.html
 rehber/endustriyel-sensor-cesitleri/index.html
 rehber/index.html
+rehber/manometre-nedir/index.html
 rehber/sil-nedir/index.html
 rehber/su-seviye-sensoru-cesitleri/index.html
 rehber/transmitter-nedir/index.html
