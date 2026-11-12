@@ -1587,6 +1587,7 @@ sektorler/index.html
 site.webmanifest
 sitemap-0.xml
 sitemap-index.xml
+sozluk/index.html
 urunler/analiz/index.html
 urunler/analiz/kompozit-numune-alma-cihazi/index.html
 urunler/basinc-transmitteri/basinc-transmitteri-bpt10/index.html
