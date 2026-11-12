@@ -1461,8 +1461,6 @@ _astro/vorteks-debimetre-bvfm-3.DfmhLu8G_Z6NY4R.avif
 _astro/vorteks-debimetre-bvfm-3.DfmhLu8G_ZVagTs.webp
 _astro/vorteks-debimetre-bvfm-3.DfmhLu8G_Zszzx0.jpg
 _astro/vorteks-debimetre-bvfm-3.DfmhLu8G_spIod.webp
-admin/config.yml
-admin/index.html
 apple-touch-icon.png
 arama.json
 cerez-politikasi/index.html
