@@ -11,8 +11,8 @@
 
 ## Ürünler
 - [Otomatik Numune Alma Cihazı (Kompozit)](https://test.befaproses.com/urunler/analiz/kompozit-numune-alma-cihazi/): Otomatik Numune Alma Cihazı (Kompozit): teknik özellikler ve PDF katalog. Türkiye geneli satış ve servis için Befa Proses'ten teklif isteyin.
-- [pH Kontrol Cihazı SEKO Kontrol 100](https://test.befaproses.com/urunler/analiz/ph-kontrol-cihazi-k100/): pH kontrol cihazı SEKO Kontrol 100: pH/ORP, iletkenlik ve debi sürümleri, 2 izoleli 4-20 mA, PWM röle, RS485 Modbus opsiyonu. Teklif isteyin.
-- [İletkenlik Ölçüm Cihazı SEKO Kontrol 40](https://test.befaproses.com/urunler/analiz/ph-orp-iletkenlik-olcum-cihazi-k40/): İletkenlik ölçüm cihazı SEKO Kontrol 40: K040CD ile 0-200 mS iletkenlik, K040PR ile pH/ORP; 2 röle, 4-20 mA çıkış. Befa Proses'ten teklif isteyin.
+- [SEKO Kontrol 100 Çok Parametreli Ölçüm Cihazı](https://test.befaproses.com/urunler/analiz/olcum-ve-kontrol-cihazi-k100/): SEKO Kontrol 100 çok parametreli ölçüm ve kontrol cihazı: pH/ORP, iletkenlik ve debi sürümleri, 2 izoleli 4-20 mA, PWM röle. Teklif isteyin.
+- [SEKO Kontrol 40 pH/ORP İletkenlik Ölçüm Cihazı](https://test.befaproses.com/urunler/analiz/ph-orp-iletkenlik-olcum-cihazi-k40/): İletkenlik ölçüm cihazı SEKO Kontrol 40: K040CD ile 0-200 mS iletkenlik, K040PR ile pH/ORP; 2 röle, 4-20 mA çıkış. Befa Proses'ten teklif isteyin.
 - [pH Probu (pH Elektrodu) SEKO SPH3 ve SPH1](https://test.befaproses.com/urunler/analiz/ph-probu/): pH probu SEKO SPH3 (atık su, cam elektrot, PG 13,5) ve SPH1 (6 m kablo, BNC): 6 bar'a kadar sürekli ölçüm. Befa Proses'ten teklif isteyin.
 - [Kompakt Basınç Transmitteri BPT10](https://test.befaproses.com/urunler/basinc-transmitteri/basinc-transmitteri-bpt10/): Kompakt Basınç Transmitteri BPT10: teknik özellikler ve PDF katalog. Türkiye geneli satış ve servis için Befa Proses'ten teklif isteyin.
 - [Basınç Transmitteri BPT15](https://test.befaproses.com/urunler/basinc-transmitteri/basinc-transmitteri-bpt15/): Basınç Transmitteri BPT15: teknik özellikler ve PDF katalog. Türkiye geneli satış ve servis için Befa Proses'ten teklif isteyin.
