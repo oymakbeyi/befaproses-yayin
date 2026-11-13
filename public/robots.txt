@@ -1,0 +1,63 @@
+# ÜRETİLDİ: scripts/derleme-sonrasi.mjs. Content-Signal (Burak onayı 2026-11-06: ai-train=yes) her grupta tekrar eder.
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: Claude-User
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+User-agent: CCBot
+Allow: /
+Disallow: /admin/
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+
+Sitemap: https://www.befaproses.com/sitemap-index.xml

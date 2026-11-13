@@ -1,0 +1,17 @@
+---
+# CANLI yayın görevleri (www.befaproses.com = /home/befapros/public_html). Yayın koşusu bu dosyayı befaproses-yayin
+# deposunun `canli` dalına .cpanel.yml olarak koyar; cPanel görevleri sırayla koşar ve biri başarısız olursa sonrakiler
+# koşmaz (2026-11-08 olayında görüldü).
+# 1. görev KİLİT: public_html'de WordPress (wp-config.php) duruyorsa yayın DURUR, hiçbir dosyaya dokunulmaz. Geçiş günü
+#    WordPress kaldırılınca (Burak onayı ayrıca) kilit kendiliğinden açılır. Koşudaki ikinci kilit: CANLI_YAYIN değişkeni.
+# yayin-temizle.sh yalnız bizim önceki yayın listemizdeki dosyaları siler; ilk yayında liste yok, silme yok.
+# Sınama: bash scripts/canli-cpanel-test.sh (bu dosyayı geçici bir kökte gerçekten koşturur).
+deployment:
+  tasks:
+    - /bin/test ! -e /home/befapros/public_html/wp-config.php
+    - export DEPLOYPATH=/home/befapros/public_html/
+    - /bin/rm -rf /home/befapros/public_html/_astro
+    - /bin/bash yayin-temizle.sh /home/befapros/public_html /home/befapros/yayin-durum/canli-liste.txt yayin-liste.txt
+    - /bin/cp -R public/. $DEPLOYPATH
+    - /bin/mkdir -p /home/befapros/yayin-durum
+    - /bin/cp yayin-liste.txt /home/befapros/yayin-durum/canli-liste.txt
