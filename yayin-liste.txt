@@ -1665,6 +1665,7 @@ _astro/vorteks-debimetre-bvfm-3.DfmhLu8G_spIod.webp
 apple-touch-icon.png
 arama.json
 cerez-politikasi/index.html
+eski-adresler.xml
 favicon-16.png
 favicon-32.png
 favicon-48.png
